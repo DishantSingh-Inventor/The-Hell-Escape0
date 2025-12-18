@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgb61pooigkjx"]
+
+[ext_resource type="Texture2D" uid="uid://18cq7bke5nja" path="res://assets/Samurai/Idle.png" id="1_1k18x"]
+[ext_resource type="Script" uid="uid://bcyghy7q48ej1" path="res://characters/character_body_2d.gd" id="1_lefe0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lefe0"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx7pn"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrks6"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygbyk"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwvk"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5mb1"]
+atlas = ExtResource("1_1k18x")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oumlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lefe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx7pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrks6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygbyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5mb1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1k18x"]
+height = 70.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_lefe0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oumlq")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 27)
+shape = SubResource("CapsuleShape2D_1k18x")
